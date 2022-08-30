@@ -2,7 +2,7 @@ import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
     siteMetadata: {
-        title: `Title my website`,
+        title: `Tutorial gatsby`,
         description: `Example project for the Gatsby Head API`,
         image: `/fly.png`,
         siteUrl: `https://myfirstgatsbysitemain60395.gatsbyjs.io/`,
@@ -11,6 +11,17 @@ const config: GatsbyConfig = {
     // If you use VSCode you can also use the GraphQL plugin
     // Learn more at: https://gatsby.dev/graphql-typegen
     graphqlTypegen: true,
-    plugins: ["gatsby-plugin-image", "gatsby-plugin-sharp"],
+    plugins: [
+        "gatsby-plugin-image",
+        "gatsby-plugin-sharp",
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                name: `blog`,
+                path: `${__dirname}/blog`,
+            },
+        },
+        "gatsby-plugin-mdx",
+    ],
 };
 export default config;
